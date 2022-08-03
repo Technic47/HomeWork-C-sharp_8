@@ -49,7 +49,6 @@ void SortArray(int[,] array)
     }
 }
 
-
 PrintArray(array);
 SortArray(array);
 Console.WriteLine();
