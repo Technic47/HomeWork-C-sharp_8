@@ -10,32 +10,23 @@ int sum = 0;
 int index = 0;
 
 int[,] array = new int[m, n];
-/*
-for (int i = 0; i < m; i++)
-{
-    for (int j = 0; j < n; j++)
-    {
-        array[i, j] = new Random().Next(0, 10);
 
-    }
-}
-*/
 void PrintArray(int[,] array)
 {
     for (int i = 0; i < m; i++)
     {
-        sum = 0;
+        sum = 0; // Обнуляем сумму.
         for (int j = 0; j < n; j++)
         {
-            array[i, j] = new Random().Next(0, 10);
-            Console.Write($"{array[i, j]} ");
-            sum += array[i, j];
+            array[i, j] = new Random().Next(0, 10); // Заполняем.
+            Console.Write($"{array[i, j]} "); // Показываем.
+            sum += array[i, j]; // Добавляем к сумме.
         }
-        Console.Write($" {sum}");
+        Console.Write($" Sum = {sum}");
         Console.WriteLine();
-        if (sum < min) { min = sum; index = i + 1; };
+        if (sum < min) { min = sum; index = i + 1; }; // Смотрим какая меньше.
     }
 }
 
 PrintArray(array);
-Console.WriteLine($"Min sum is in line: {index}");
+Console.WriteLine($"Min Sum is in line: {index}");
