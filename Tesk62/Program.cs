@@ -5,35 +5,35 @@
 Console.WriteLine("Enter array length: ");
 int N = int.Parse(Console.ReadLine()!);
 
-int[,] matrix = new int[N, N];
+int[,] matrix = new int[N, N]; // Работае при N > 4.
 int a = 1;
 int i = 0;
 int j = 0;
 int count = 0;
 
-while (matrix[(i+1), j] == 0 || matrix[(i-1), j] == 0 || matrix[i, (j+1)] == 0 || matrix[i, (j-1)] == 0)
+while (matrix[(i + 1), j] == 0 || matrix[(i - 1), j] == 0 || matrix[i, (j + 1)] == 0 || matrix[i, (j - 1)] == 0 || matrix[i, j] == 0)
 {
-    while (i < (N-count)) // строка направо
+    while (i < (N - count)) // строка направо
     {
-        matrix[i,j] = a;
+        matrix[i, j] = a;
         a++;
         i++;
     }
     i--;
     j++;
 
-    while (j < (N-count)) // столбец вниз
+    while (j < (N - count)) // столбец вниз
     {
-        matrix[i,j] = a;
+        matrix[i, j] = a;
         a++;
         j++;
     }
     j--;
     i--;
-    
+
     while (i >= (0 + count)) // строка налево
     {
-        matrix[i,j] = a;
+        matrix[i, j] = a;
         a++;
         i--;
     }
@@ -43,7 +43,7 @@ while (matrix[(i+1), j] == 0 || matrix[(i-1), j] == 0 || matrix[i, (j+1)] == 0 |
 
     while (j >= (0 + count)) // столбец вверх
     {
-        matrix[i,j] = a;
+        matrix[i, j] = a;
         a++;
         j--;
     }
@@ -60,7 +60,7 @@ void FillArray(int[,] matr)
             Console.Write(string.Format("{0,2:d} ", matr[i, j]));
             //Console.Write($"{matr[i, j]} ");
         }
-    Console.WriteLine();
+        Console.WriteLine();
     }
 }
 
