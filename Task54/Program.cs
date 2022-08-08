@@ -10,10 +10,7 @@ int[,] array = new int[m, n];
 
 for (int i = 0; i < m; i++)
 {
-    for (int j = 0; j < n; j++)
-    {
-        array[i, j] = new Random().Next(0, 10);
-    }
+    for (int j = 0; j < n; j++) array[i, j] = new Random().Next(0, 10);
 }
 
 
@@ -21,11 +18,7 @@ void PrintArray(int[,] array)
 {
     for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            Console.Write($"{array[i, j]} ");
-
-        }
+        for (int j = 0; j < n; j++) Console.Write($"{array[i, j]} ");
         Console.WriteLine();
     }
 }

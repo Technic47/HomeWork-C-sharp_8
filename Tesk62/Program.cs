@@ -58,7 +58,6 @@ void FillArray(int[,] matr)
         for (int i = 0; i < N; i++)
         {
             Console.Write(string.Format("{0,2:d} ", matr[i, j]));
-            //Console.Write($"{matr[i, j]} ");
         }
         Console.WriteLine();
     }

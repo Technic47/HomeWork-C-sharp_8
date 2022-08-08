@@ -51,10 +51,7 @@ void ArrayMult(int[,] array1, int[,] array2)
         for (int j = 0; j < n; j++)
         {
 
-            for (int p = 0; p < size; p++) // Тут какая-то матиматика. Честно, сам делал) Вроде работает.
-            {
-                sum += array1[i, p] * array2[p, j];
-            }
+            for (int p = 0; p < size; p++) sum += array1[i, p] * array2[p, j]; // Тут какая-то матиматика. Честно, сам делал) Вроде работает.
             array3[i, j] = sum;
             sum = 0;
             Console.Write(string.Format("{0,3:d} ", array3[i, j]));
