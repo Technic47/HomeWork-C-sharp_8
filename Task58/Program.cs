@@ -17,10 +17,7 @@ if (m1 != n2 || m2 != n1) // Защита от некорректных разм
     return;
 }
 
-//int m = 6; // Для ручного тестирования.
-//int n = 3;
-
-int[,] FillArray(int m, int n) // Тут заполняются и выводятся матрицы.
+int[,] FillArray(int m, int n) // Тут заполняются матрицы.
 {
     int[,] array = new int[m, n];
     for (int i = 0; i < m; i++)
@@ -28,16 +25,25 @@ int[,] FillArray(int m, int n) // Тут заполняются и выводя�
         for (int j = 0; j < n; j++)
         {
             array[i, j] = new Random().Next(0, 10);
-            Console.Write($"{array[i, j]} ");
         }
-        Console.WriteLine();
     }
     return array;
 }
 
-void ArrayMult(int[,] array1, int[,] array2)
+void PrintArray(int[,] array) // Тут выводятся матрицы.
 {
-    int sum = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(string.Format("{0,3:d} ", array[i, j]));
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] ArrayMult(int[,] array1, int[,] array2) // Тут какая-то матиматика. Вроде работает.
+{
     int m = array1.GetLength(0); // Размер итоговой матрицы.
     int n = array2.GetLength(1);
     int[,] array3 = new int[m, n];
@@ -51,18 +57,22 @@ void ArrayMult(int[,] array1, int[,] array2)
         for (int j = 0; j < n; j++)
         {
 
-            for (int p = 0; p < size; p++) sum += array1[i, p] * array2[p, j]; // Тут какая-то матиматика. Честно, сам делал) Вроде работает.
-            array3[i, j] = sum;
-            sum = 0;
-            Console.Write(string.Format("{0,3:d} ", array3[i, j]));
+            for (int p = 0; p < size; p++)
+            {
+                array3[i, j] += array1[i, p] * array2[p, j];
+            }
         }
-        sum = 0;
-        Console.WriteLine();
+
     }
+    return array3;
 }
 
+
 int[,] array1 = FillArray(m1, n1);
+PrintArray(array1);
 Console.WriteLine();
 int[,] array2 = FillArray(m2, n2);
+PrintArray(array2);
 Console.WriteLine();
-ArrayMult(array1, array2);
+int[,] array3 = ArrayMult(array1, array2);
+PrintArray(array3);
