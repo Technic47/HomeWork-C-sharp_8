@@ -44,13 +44,13 @@ void PrintArray(int[,] array)
     }
 }
 
-int[,] ArrayMult(int[,] array1, int[,] array2) // Тут какая-то матиматика. Вроде работает.
+int[,] ArrayMult(int[,] array1, int[,] array2) // Тут какая-то математика. Вроде работает.
 {
     int m = array1.GetLength(0); // Размер итоговой матрицы.
     int n = array2.GetLength(1);
     int[,] array3 = new int[m, n];
     int size = 0;
-    if (array1.GetLength(0) < array1.GetLength(1)) size = array1.GetLength(1); // Выбор size для количества сложений.
+    if (array1.GetLength(0) < array1.GetLength(1)) size = array1.GetLength(1); // Выбор size для количества сложений. Нужно, если матрицы не равны.
     else size = array2.GetLength(0);
 
     for (int i = 0; i < m; i++) // Заполнение результирующей матрицы.
