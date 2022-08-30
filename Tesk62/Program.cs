@@ -3,13 +3,16 @@
 */
 
 Console.WriteLine("Enter array length: ");
-int N = int.Parse(Console.ReadLine()!);
+int n = int.Parse(Console.ReadLine()!);
 
+int[,] CreateMatrix (n)
+{
 int[,] matrix = new int[N, N]; // Работае при N > 4.
 int a = 1;
 int i = 0;
 int j = 0;
 int count = 0;
+
 
 while (matrix[(i + 1), j] == 0 || matrix[(i - 1), j] == 0 || matrix[i, (j + 1)] == 0 || matrix[i, (j - 1)] == 0 || matrix[i, j] == 0)
 {
@@ -50,8 +53,11 @@ while (matrix[(i + 1), j] == 0 || matrix[(i - 1), j] == 0 || matrix[i, (j + 1)] 
     j++;
     i++;
 }
+}
 
-void FillArray(int[,] matr)
+
+
+void PrintArray(int[,] matr)
 {
     for (int j = 0; j < N; j++)
     {
@@ -63,4 +69,5 @@ void FillArray(int[,] matr)
     }
 }
 
-FillArray(matrix);
+int[,] matrix = CreateMatrix(N,N);
+PrintArray(matrix);

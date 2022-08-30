@@ -8,18 +8,23 @@ int m = 3;
 int n = 3;
 int p = 3;
 
-int[,,] array = new int[m, n, p];
-
-for (int i = 0; i < m; i++)
+int[,,] CreateMatrixRnd (int m, int n, int p, int min, int max)
 {
-    for (int j = 0; j < n; j++)
+    int[,,] array = new int[m, n, p];
+    Random rnd = new Random(); 
+    for (int i = 0; i < m; i++)
     {
-        for (int y = 0; y < p; y++) array[i, j, y] = new Random().Next(10, 100);
+        for (int j = 0; j < n; j++)
+        {
+            for (int y = 0; y < p; y++) array[i, j, y] = rnd.Next(min, max + 1);
+        }
     }
+    return array;
 }
 
-void PrintArray(int[,,] array)
+void PrintArray3D(int[,,] array)
 {
+    Console.WriteLine();
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -27,7 +32,9 @@ void PrintArray(int[,,] array)
             for (int y = 0; y < p; y++)  Console.Write($"{array[i, j, y]}({i},{j},{y}) ");
             Console.WriteLine();
         }
+        Console.WriteLine();
     }
 }
 
-PrintArray(array);
+int[,,] array = CreateMatrixRnd(m, n, p, 0, 9);
+PrintArray3D(array);
