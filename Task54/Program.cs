@@ -6,10 +6,10 @@
 int m = 5;
 int n = 5;
 
-int[,] CreateMatrixRnd (int m, int n, int min, int max)
+int[,] CreateMatrixRnd(int m, int n, int min, int max)
 {
     int[,] array = new int[m, n];
-    Random rnd = new Random(); 
+    Random rnd = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
@@ -27,7 +27,7 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < n; j++)
         {
-            Console.Write($"{array[i, j], 2} ");
+            Console.Write($"{array[i, j],2} ");
         }
         Console.WriteLine();
     }
@@ -35,7 +35,6 @@ void PrintArray(int[,] array)
 
 void SortArray(int[,] array)
 {
-    int temp = 0;
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < m - 1; j++)
@@ -44,7 +43,7 @@ void SortArray(int[,] array)
             {
                 if (array[i, j] < array[i, sort])
                 {
-                    temp = array[i, sort];
+                    int temp = array[i, sort];
                     array[i, sort] = array[i, j];
                     array[i, j] = temp;
                 }

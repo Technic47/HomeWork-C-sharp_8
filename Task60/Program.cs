@@ -18,8 +18,7 @@ int[,,] CreateMatrixRndNoDoubles(int m, int n, int p, int min, int max)
         {
             for (int y = 0; y < p; y++)
             {
-                int number = rnd.Next(min, max);
-                array[i, j, y] = number;
+                array[i, j, y] = rnd.Next(min, max);
             }
         }
     }
